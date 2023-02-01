@@ -27,3 +27,43 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+#puts "#{blockchain[1]}"
+#transaction = blockchain[3]
+#from_user = transaction["from_user"]
+#to_user = transaction["to_user"]
+#amount = transaction["amount"]
+#transaction["to_user"] =
+#puts from_user
+#puts to_user
+#puts amount
+#puts blockchain.size
+puts "Starting Loop"
+index = 0
+ben = 0
+loop do
+    if index == blockchain.size
+      break
+    end
+   puts "Loop #{index} started"
+   puts "ben's beggining bank statement #{ben}"
+    transaction = blockchain[index]
+    from_user = transaction["from_user"]
+    to_user = transaction["to_user"]
+    amount = transaction["amount"]
+    puts "from_user is #{from_user}"
+    puts "to_user is #{to_user}"
+    puts "amount is #{amount}"
+      if from_user == "ben" # Difference between when needing to use == and = 
+      ben = ben - amount
+    
+      elsif to_user == "ben"
+      ben = ben + amount
+      else
+      end
+  index = index + 1
+  puts "ben's current bank statement #{ben}"
+    end
+
+    puts ben
+puts "Run Complete"
+#Do I need to keep an array to collect peoples unique people names? 
