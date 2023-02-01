@@ -17,53 +17,47 @@ blockchain = [
   { "from_user" => "anthony", "to_user" => "evan", "amount" => 1750 }
 ]
 
-# Write code below that returns the number of KelloggCoin that each user has in their 
-# KelloggCoin "wallet".
+# 1. create 4 variables to represent each user's balance
 
-# It should print out:
-# Ben's KelloggCoin balance is 14000
-# Brian's KelloggCoin balance is 13000
-# Evan's KelloggCoin balance is 10350
-# Anthony's KelloggCoin balance is 2650
+bens_balance = 0
+brians_balance = 0
+evans_balance = 0
+anthonys_balance = 0
 
-# 👇👇👇 Your code HERE 👇👇👇
-#puts "#{blockchain[1]}"
-#transaction = blockchain[3]
-#from_user = transaction["from_user"]
-#to_user = transaction["to_user"]
-#amount = transaction["amount"]
-#transaction["to_user"] =
-#puts from_user
-#puts to_user
-#puts amount
-#puts blockchain.size
-puts "Starting Loop"
-index = 0
-ben = 0
-loop do
-    if index == blockchain.size
-      break
-    end
-   puts "Loop #{index} started"
-   puts "ben's beggining bank statement #{ben}"
-    transaction = blockchain[index]
-    from_user = transaction["from_user"]
-    to_user = transaction["to_user"]
-    amount = transaction["amount"]
-    puts "from_user is #{from_user}"
-    puts "to_user is #{to_user}"
-    puts "amount is #{amount}"
-      if from_user == "ben" # Difference between when needing to use == and = 
-      ben = ben - amount
-    
-      elsif to_user == "ben"
-      ben = ben + amount
-      else
-      end
-  index = index + 1
-  puts "ben's current bank statement #{ben}"
-    end
+# 2. loop through the "blockchain" transactions
 
-    puts ben
-puts "Run Complete"
-#Do I need to keep an array to collect peoples unique people names? 
+for transaction in blockchain
+  # each "transaction" in the "blockchain" array is a Hash
+  #puts transaction
+  # 3. if the user is the "from_user", decrement their balance
+  
+  if transaction["from_user"] == "ben"
+    bens_balance = bens_balance - transaction["amount"]
+  elsif transaction["from_user"] == "brian"
+    brians_balance = brians_balance - transaction["amount"]
+  elsif transaction["from_user"] == "evan"
+    evans_balance = evans_balance - transaction["amount"]
+  elsif transaction["from_user"] == "anthony"
+    anthonys_balance = anthonys_balance - transaction["amount"]
+  end
+
+  # 4. if the user is the "to_user", increment their balance
+
+  if transaction["to_user"] == "ben"
+    bens_balance = bens_balance + transaction["amount"]
+  elsif transaction["to_user"] == "brian"
+    brians_balance = brians_balance + transaction["amount"]
+  elsif transaction["to_user"] == "evan"
+    evans_balance = evans_balance + transaction["amount"]
+  elsif transaction["to_user"] == "anthony"
+    anthonys_balance = anthonys_balance + transaction["amount"]
+  end
+end
+
+# 5. finally, print out the result
+
+puts "Ben's KelloggCoin balance is #{bens_balance}"
+puts "Brian's KelloggCoin balance is #{brians_balance}"
+puts "Evan's KelloggCoin balance is #{evans_balance}"
+puts "Anthony's KelloggCoin balance is #{anthonys_balance}"
+
